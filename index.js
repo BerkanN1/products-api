@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 mongoose.connect(
-  `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.xnfsv.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`,
+  `mongodb+srv://berkan:1@cluster0.q1ngolo.mongodb.net/?retryWrites=true&w=majority`,
   (e) => {
     if (e) {
       console.log(e);
@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 app.use("/auth", authRouter);
 app.use("/products", verifyToken, productsRouter);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
